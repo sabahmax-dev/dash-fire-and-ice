@@ -3,6 +3,7 @@ using UnityEngine;
 /// <summary>
 /// 障碍管理器
 /// 控制障碍的随机生成、移动、回收
+/// 速度随游戏难度动态调整
 /// </summary>
 public class ObstacleManager : MonoBehaviour
 {
@@ -18,6 +19,9 @@ public class ObstacleManager : MonoBehaviour
     private float spawnY;
     // 下一次生成时间
     private float nextSpawnTime;
+    // 基础生成间隔
+    private const float BASE_MIN_INTERVAL = 2f;
+    private const float BASE_MAX_INTERVAL = 4f;
 
     private void Awake()
     {
@@ -40,10 +44,14 @@ public class ObstacleManager : MonoBehaviour
         // 游戏结束时停止生成
         if (GameManager.Instance != null && GameManager.Instance.IsGameOver) return;
 
+        // 根据游戏速度调整生成间隔（速度越快，间隔越短）
+        float speedMultiplier = GameManager.Instance != null ? GameManager.Instance.GameSpeed / 5f : 1f;
+        minSpawnInterval = BASE_MIN_INTERVAL / speedMultiplier;
+        maxSpawnInterval = BASE_MAX_INTERVAL / speedMultiplier;
+
         // 到时间生成障碍
         if (Time.time >= nextSpawnTime)
         {
-            Debug.Log("时间到，生成障碍物");
             SpawnObstacle();
             // 重置下一次生成时间
             nextSpawnTime = Time.time + Random.Range(minSpawnInterval, maxSpawnInterval);
@@ -73,7 +81,14 @@ public class ObstacleManager : MonoBehaviour
             moveScript = obstacle.AddComponent<ObstacleMove>();
         }
         moveScript.Init(obstaclePool);
+    }
 
-        Debug.Log($"障碍物已生成，位置: {obstacle.transform.position}");
+    /// <summary>
+    /// 重置生成器（游戏重开时调用）
+    /// </summary>
+    public void ResetSpawner()
+    {
+        nextSpawnTime = Time.time + 2f;
+        Debug.Log("ObstacleManager: 生成器已重置");
     }
 }

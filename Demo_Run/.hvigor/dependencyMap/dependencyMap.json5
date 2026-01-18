@@ -1,0 +1,1 @@
+{"basePath":"/Users/guosj-mac-mini/Documents/github_repos/dash-fire-and-ice/Demo_Run/.hvigor/dependencyMap/dependencyMap.json5","rootDependency":"./oh-package.json5","dependencyMap":{"entry":"./entry/oh-package.json5","tuanjieLib":"./tuanjieLib/oh-package.json5"},"modules":[{"name":"entry","srcPath":"../../../entry"},{"name":"tuanjieLib","srcPath":"../../../tuanjieLib"}]}

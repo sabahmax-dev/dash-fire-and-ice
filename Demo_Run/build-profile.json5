@@ -1,0 +1,53 @@
+{
+  "app": {
+    "signingConfigs": [
+      {
+        "name": "default",
+        "type": "HarmonyOS",
+        "material": {
+          "certpath": "/Users/guosj-mac-mini/.ohos/config/default_Demo_Run_xsuwhvR0Z1HX56L2YUJQoZ1IAEeeH4IIGxXJPBK-yxc=.cer",
+          "keyAlias": "debugKey",
+          "keyPassword": "0000001BCD0A9ABE94EB3FAB319074BACB771E7AD4A979C42C99D612F99F55A2CB0FAA4F4BCF2D057CDB5F",
+          "profile": "/Users/guosj-mac-mini/.ohos/config/default_Demo_Run_xsuwhvR0Z1HX56L2YUJQoZ1IAEeeH4IIGxXJPBK-yxc=.p7b",
+          "signAlg": "SHA256withECDSA",
+          "storeFile": "/Users/guosj-mac-mini/.ohos/config/default_Demo_Run_xsuwhvR0Z1HX56L2YUJQoZ1IAEeeH4IIGxXJPBK-yxc=.p12",
+          "storePassword": "0000001B34C4306F83EAA8014DC876A66A00BC08DDBE607838A41F3069CADA3BDCCF984E7EC49F2641928B"
+        }
+      }
+    ],
+    "products": [
+      {
+        "name": "default",
+        "signingConfig": "default",
+        "compatibleSdkVersion": "5.0.2(14)",
+        "runtimeOS": "HarmonyOS"
+      }
+    ]
+  },
+  "modules": [
+    {
+      "name": "entry",
+      "srcPath": "./entry",
+      "targets": [
+        {
+          "name": "default",
+          "applyToProducts": [
+            "default"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "tuanjieLib",
+      "srcPath": "./tuanjieLib",
+      "targets": [
+        {
+          "name": "default",
+          "applyToProducts": [
+            "default"
+          ]
+        }
+      ]
+    }
+  ]
+}

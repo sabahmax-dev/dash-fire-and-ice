@@ -11,10 +11,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float jumpSpeed = 7f;
     // 主角刚体组件
     private Rigidbody2D rb;
-    // 动画控制器（可选）
+    // 动画控制器（可选，支持两种方式：PlayerAnimation 或 Animator）
+    private PlayerAnimation playerAnim;
     private Animator anim;
     // 是否在地面（防止二次跳跃）
     private bool isGrounded = true;
+    // 是否死亡
+    private bool isDead = false;
     // 输入动作
     private PlayerInputActions inputActions;
 
@@ -22,7 +25,8 @@ public class PlayerController : MonoBehaviour
     {
         // 获取组件
         rb = GetComponent<Rigidbody2D>();
-        TryGetComponent(out anim); // Animator 是可选的
+        TryGetComponent(out playerAnim); // PlayerAnimation 是可选的
+        TryGetComponent(out anim);      // Animator 是可选的（兼容旧版）
 
         // 初始化输入动作
         inputActions = new PlayerInputActions();
@@ -59,12 +63,19 @@ public class PlayerController : MonoBehaviour
             // Debug.Log($"Update运行中: isGrounded={isGrounded}, position={transform.position}");
         }
 
-        // 更新动画参数（如果有 Animator 且有 AnimatorController）
+        // 更新动画 - 使用 PlayerAnimation
+        if (playerAnim != null)
+        {
+            playerAnim.SetRunning(isGrounded && !isDead);
+            playerAnim.SetJumping(!isGrounded && !isDead);
+        }
+
+        // 兼容旧版 Animator
         if (anim != null && anim.runtimeAnimatorController != null)
         {
-            bool isDead = anim.GetBool("isDead");
-            anim.SetBool("isRunning", isGrounded && !isDead);
-            anim.SetBool("isJumping", !isGrounded && !isDead);
+            bool animIsDead = anim.GetBool("isDead");
+            anim.SetBool("isRunning", isGrounded && !animIsDead);
+            anim.SetBool("isJumping", !isGrounded && !animIsDead);
         }
 
         // 备选输入检测（旧输入系统）- 增强调试
@@ -74,7 +85,7 @@ public class PlayerController : MonoBehaviour
         if (spacePressed || mousePressed)
         {
             Debug.Log($"检测到输入! 空格={spacePressed}, 鼠标={mousePressed}, isGrounded={isGrounded}");
-            if (isGrounded)
+            if (isGrounded && !isDead)
             {
                 Jump();
             }
@@ -86,7 +97,6 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     private void OnTapPerformed(InputAction.CallbackContext context)
     {
-        bool isDead = (anim != null && anim.runtimeAnimatorController != null && anim.GetBool("isDead"));
         Debug.Log("新输入系统：收到跳跃输入，isGrounded=" + isGrounded + ", isDead=" + isDead);
         if (isGrounded && !isDead)
         {
@@ -124,9 +134,51 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Obstacle"))
         {
             Debug.Log("碰到障碍物，游戏结束！");
+            isDead = true;
+
+            // 使用 PlayerAnimation 设置死亡状态
+            if (playerAnim != null)
+            {
+                playerAnim.SetDead(true);
+            }
+
+            // 兼容旧版 Animator
             if (anim != null && anim.runtimeAnimatorController != null)
+            {
                 anim.SetBool("isDead", true);
+            }
+
             GameManager.Instance.GameOver();
         }
+    }
+
+    /// <summary>
+    /// 重置主角状态（游戏重开时调用）
+    /// </summary>
+    public void ResetPlayer()
+    {
+        isDead = false;
+        isGrounded = true;
+
+        // 重置位置和刚体
+        transform.position = new Vector3(-2f, -2.5f, 0f);
+        transform.rotation = Quaternion.identity;
+        rb.velocity = Vector2.zero;
+
+        // 重置动画
+        if (playerAnim != null)
+        {
+            playerAnim.ResetAnimation();
+        }
+
+        // 兼容旧版 Animator
+        if (anim != null && anim.runtimeAnimatorController != null)
+        {
+            anim.SetBool("isDead", false);
+            anim.SetBool("isRunning", true);
+            anim.SetBool("isJumping", false);
+        }
+
+        Debug.Log("PlayerController: 主角已重置");
     }
 }

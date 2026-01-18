@@ -4,15 +4,16 @@ using System.Collections.Generic;
 /// <summary>
 /// 地面管理器
 /// 实现地面预制体的循环生成与回收，模拟无限地面
+/// 速度随游戏难度动态调整
 /// </summary>
 public class GroundManager : MonoBehaviour
 {
     [SerializeField] private GameObject groundPrefab;
     [SerializeField] private int groundPoolCount = 3;
-    [SerializeField] private float scrollSpeed = 5f;
 
     private float groundWidth;
     private List<GameObject> activeGrounds;
+    private const float GROUND_Y = -3f;
 
     private void Awake()
     {
@@ -27,7 +28,7 @@ public class GroundManager : MonoBehaviour
         for (int i = 0; i < groundPoolCount; i++)
         {
             GameObject ground = Instantiate(groundPrefab, transform);
-            ground.transform.position = new Vector3(i * groundWidth, -3f, 0f);
+            ground.transform.position = new Vector3(i * groundWidth, GROUND_Y, 0f);
             // 设置地面宽度
             SpriteRenderer sr = ground.GetComponent<SpriteRenderer>();
             if (sr != null)
@@ -53,12 +54,15 @@ public class GroundManager : MonoBehaviour
         if (GameManager.Instance != null && GameManager.Instance.IsGameOver)
             return;
 
+        // 使用游戏管理器的动态速度
+        float currentSpeed = GameManager.Instance != null ? GameManager.Instance.GameSpeed : 5f;
+
         // 移动所有地面
         foreach (GameObject ground in activeGrounds)
         {
             if (ground != null)
             {
-                ground.transform.Translate(Vector3.left * scrollSpeed * Time.deltaTime);
+                ground.transform.Translate(Vector3.left * currentSpeed * Time.deltaTime);
             }
         }
 
@@ -70,12 +74,27 @@ public class GroundManager : MonoBehaviour
             {
                 // 移动到最右侧
                 float lastGroundX = activeGrounds[activeGrounds.Count - 1].transform.position.x;
-                firstGround.transform.position = new Vector3(lastGroundX + groundWidth, -3f, 0f);
+                firstGround.transform.position = new Vector3(lastGroundX + groundWidth, GROUND_Y, 0f);
 
                 // 将第一个移到列表末尾
                 activeGrounds.RemoveAt(0);
                 activeGrounds.Add(firstGround);
             }
         }
+    }
+
+    /// <summary>
+    /// 重置地面位置（游戏重开时调用）
+    /// </summary>
+    public void ResetGround()
+    {
+        for (int i = 0; i < activeGrounds.Count; i++)
+        {
+            if (activeGrounds[i] != null)
+            {
+                activeGrounds[i].transform.position = new Vector3(i * groundWidth, GROUND_Y, 0f);
+            }
+        }
+        Debug.Log("GroundManager: 地面已重置");
     }
 }

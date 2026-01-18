@@ -1,0 +1,235 @@
+{
+  "ohos-module-entry": {
+    "SELECT_TARGET": "default",
+    "MODULE_BUILD_DIR": "/Users/guosj-mac-mini/Documents/github_repos/dash-fire-and-ice/Demo_Run/entry/build",
+    "TARGETS": {
+      "default": {
+        "SOURCE_ROOT": "/Users/guosj-mac-mini/Documents/github_repos/dash-fire-and-ice/Demo_Run/entry/src/main",
+        "RESOURCES_PATH": [
+          "/Users/guosj-mac-mini/Documents/github_repos/dash-fire-and-ice/Demo_Run/entry/src/main/resources"
+        ],
+        "BUILD_PATH": {
+          "OUTPUT_PATH": "/Users/guosj-mac-mini/Documents/github_repos/dash-fire-and-ice/Demo_Run/entry/build/default/outputs/default",
+          "INTERMEDIA_PATH": "/Users/guosj-mac-mini/Documents/github_repos/dash-fire-and-ice/Demo_Run/entry/build/default/intermediates",
+          "JS_ASSETS_PATH": "/Users/guosj-mac-mini/Documents/github_repos/dash-fire-and-ice/Demo_Run/entry/build/default/intermediates/loader_out/default",
+          "JS_LITE_ASSETS_PATH": "/Users/guosj-mac-mini/Documents/github_repos/dash-fire-and-ice/Demo_Run/entry/build/default/intermediates/loader_out_lite/default",
+          "RES_PATH": "/Users/guosj-mac-mini/Documents/github_repos/dash-fire-and-ice/Demo_Run/entry/build/default/intermediates/res/default",
+          "RES_PROFILE_PATH": "/Users/guosj-mac-mini/Documents/github_repos/dash-fire-and-ice/Demo_Run/entry/build/default/intermediates/res/default/resources/base/profile",
+          "ETS_SUPER_VISUAL_PATH": "/Users/guosj-mac-mini/Documents/github_repos/dash-fire-and-ice/Demo_Run/entry/build/default/cache/default/default@CompileArkTS/esmodule",
+          "JS_SUPER_VISUAL_PATH": "/Users/guosj-mac-mini/Documents/github_repos/dash-fire-and-ice/Demo_Run/entry/build/default/cache/default/default@CompileJS/jsbundle",
+          "WORKER_LOADER": "/Users/guosj-mac-mini/Documents/github_repos/dash-fire-and-ice/Demo_Run/entry/build/default/intermediates/loader/default/loader.json",
+          "MANIFEST_JSON": "/Users/guosj-mac-mini/Documents/github_repos/dash-fire-and-ice/Demo_Run/entry/build/default/intermediates/manifest/default",
+          "OUTPUT_METADATA_JSON": "/Users/guosj-mac-mini/Documents/github_repos/dash-fire-and-ice/Demo_Run/entry/build/default/intermediates/hap_metadata/default/output_metadata.json",
+          "SOURCE_MAP_DIR": "/Users/guosj-mac-mini/Documents/github_repos/dash-fire-and-ice/Demo_Run/entry/build/default/intermediates/source_map/default"
+        },
+        "BUILD_OPTION": {
+          "debuggable": true
+        }
+      }
+    },
+    "BUILD_OPTION": {
+      "default-default": {
+        "debuggable": true,
+        "copyFrom": "default",
+        "nativeLib": {
+          "debugSymbol": {
+            "strip": false
+          }
+        }
+      }
+    },
+    "BUILD_PROFILE_OPT": {
+      "apiType": "stageMode",
+      "buildOption": {
+        "nativeLib": {
+          "debugSymbol": {
+            "strip": false
+          }
+        }
+      },
+      "targets": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    "BUILD_CACHE_DIR": ""
+  },
+  "ohos-module-tuanjieLib": {
+    "SELECT_TARGET": "default",
+    "MODULE_BUILD_DIR": "/Users/guosj-mac-mini/Documents/github_repos/dash-fire-and-ice/Demo_Run/tuanjieLib/build",
+    "TARGETS": {
+      "default": {
+        "SOURCE_ROOT": "/Users/guosj-mac-mini/Documents/github_repos/dash-fire-and-ice/Demo_Run/tuanjieLib/src/main",
+        "RESOURCES_PATH": [
+          "/Users/guosj-mac-mini/Documents/github_repos/dash-fire-and-ice/Demo_Run/tuanjieLib/src/main/resources"
+        ],
+        "BUILD_PATH": {
+          "OUTPUT_PATH": "/Users/guosj-mac-mini/Documents/github_repos/dash-fire-and-ice/Demo_Run/tuanjieLib/build/default/outputs/default",
+          "INTERMEDIA_PATH": "/Users/guosj-mac-mini/Documents/github_repos/dash-fire-and-ice/Demo_Run/tuanjieLib/build/default/intermediates",
+          "JS_ASSETS_PATH": "/Users/guosj-mac-mini/Documents/github_repos/dash-fire-and-ice/Demo_Run/tuanjieLib/build/default/intermediates/loader_out/default",
+          "JS_LITE_ASSETS_PATH": "/Users/guosj-mac-mini/Documents/github_repos/dash-fire-and-ice/Demo_Run/tuanjieLib/build/default/intermediates/loader_out_lite/default",
+          "RES_PATH": "/Users/guosj-mac-mini/Documents/github_repos/dash-fire-and-ice/Demo_Run/tuanjieLib/build/default/intermediates/res/default",
+          "RES_PROFILE_PATH": "/Users/guosj-mac-mini/Documents/github_repos/dash-fire-and-ice/Demo_Run/tuanjieLib/build/default/intermediates/res/default/resources/base/profile",
+          "ETS_SUPER_VISUAL_PATH": "/Users/guosj-mac-mini/Documents/github_repos/dash-fire-and-ice/Demo_Run/tuanjieLib/build/default/cache/default/default@HarCompileArkTS/esmodule",
+          "JS_SUPER_VISUAL_PATH": "/Users/guosj-mac-mini/Documents/github_repos/dash-fire-and-ice/Demo_Run/tuanjieLib/build/default/cache/default/default@HarCompileJS/jsbundle",
+          "WORKER_LOADER": "/Users/guosj-mac-mini/Documents/github_repos/dash-fire-and-ice/Demo_Run/tuanjieLib/build/default/intermediates/loader/default/loader.json",
+          "MANIFEST_JSON": "/Users/guosj-mac-mini/Documents/github_repos/dash-fire-and-ice/Demo_Run/tuanjieLib/build/default/intermediates/manifest/default",
+          "OUTPUT_METADATA_JSON": "/Users/guosj-mac-mini/Documents/github_repos/dash-fire-and-ice/Demo_Run/tuanjieLib/build/default/intermediates/hap_metadata/default/output_metadata.json",
+          "SOURCE_MAP_DIR": "/Users/guosj-mac-mini/Documents/github_repos/dash-fire-and-ice/Demo_Run/tuanjieLib/build/default/intermediates/source_map/default"
+        },
+        "BUILD_OPTION": {
+          "debuggable": true
+        }
+      }
+    },
+    "BUILD_OPTION": {
+      "default-default": {
+        "debuggable": true,
+        "copyFrom": "default",
+        "nativeLib": {
+          "debugSymbol": {
+            "strip": false
+          }
+        },
+        "sourceOption": {
+          "workers": [
+            "./src/main/ets/workers/TuanjieMainWorker.ets"
+          ]
+        },
+        "arkOptions": {
+          "runtimeOnly": {
+            "packages": [],
+            "sources": []
+          }
+        }
+      }
+    },
+    "BUILD_PROFILE_OPT": {
+      "apiType": "stageMode",
+      "buildOption": {
+        "nativeLib": {
+          "debugSymbol": {
+            "strip": false
+          }
+        },
+        "sourceOption": {
+          "workers": [
+            "./src/main/ets/workers/TuanjieMainWorker.ets"
+          ]
+        },
+        "arkOptions": {
+          "runtimeOnly": {
+            "packages": [],
+            "sources": []
+          }
+        }
+      },
+      "targets": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    "BUILD_CACHE_DIR": ""
+  },
+  "ohos-project": {
+    "SELECT_PRODUCT_NAME": "default",
+    "MODULE_BUILD_DIR": "/Users/guosj-mac-mini/Documents/github_repos/dash-fire-and-ice/Demo_Run/build",
+    "BUNDLE_NAME": "com.Demo.IceFireDashDemo",
+    "BUILD_PATH": {
+      "OUTPUT_PATH": "/Users/guosj-mac-mini/Documents/github_repos/dash-fire-and-ice/Demo_Run/build/outputs/default"
+    },
+    "MODULES": [
+      {
+        "name": "entry",
+        "srcPath": "/Users/guosj-mac-mini/Documents/github_repos/dash-fire-and-ice/Demo_Run/entry",
+        "targets": [
+          {
+            "name": "default",
+            "applyToProducts": [
+              "default"
+            ]
+          }
+        ],
+        "belongProjectPath": "/Users/guosj-mac-mini/Documents/github_repos/dash-fire-and-ice/Demo_Run"
+      },
+      {
+        "name": "tuanjieLib",
+        "srcPath": "/Users/guosj-mac-mini/Documents/github_repos/dash-fire-and-ice/Demo_Run/tuanjieLib",
+        "targets": [
+          {
+            "name": "default",
+            "applyToProducts": [
+              "default"
+            ]
+          }
+        ],
+        "belongProjectPath": "/Users/guosj-mac-mini/Documents/github_repos/dash-fire-and-ice/Demo_Run"
+      }
+    ],
+    "PROFILE_OPT": {
+      "app": {
+        "signingConfigs": [
+          {
+            "name": "default",
+            "type": "HarmonyOS",
+            "material": {
+              "certpath": "/Users/guosj-mac-mini/.ohos/config/default_Demo_Run_xsuwhvR0Z1HX56L2YUJQoZ1IAEeeH4IIGxXJPBK-yxc=.cer",
+              "keyAlias": "debugKey",
+              "keyPassword": "0000001BCD0A9ABE94EB3FAB319074BACB771E7AD4A979C42C99D612F99F55A2CB0FAA4F4BCF2D057CDB5F",
+              "profile": "/Users/guosj-mac-mini/.ohos/config/default_Demo_Run_xsuwhvR0Z1HX56L2YUJQoZ1IAEeeH4IIGxXJPBK-yxc=.p7b",
+              "signAlg": "SHA256withECDSA",
+              "storeFile": "/Users/guosj-mac-mini/.ohos/config/default_Demo_Run_xsuwhvR0Z1HX56L2YUJQoZ1IAEeeH4IIGxXJPBK-yxc=.p12",
+              "storePassword": "0000001B34C4306F83EAA8014DC876A66A00BC08DDBE607838A41F3069CADA3BDCCF984E7EC49F2641928B"
+            }
+          }
+        ],
+        "products": [
+          {
+            "name": "default",
+            "signingConfig": "default",
+            "compatibleSdkVersion": "5.0.2(14)",
+            "runtimeOS": "HarmonyOS"
+          }
+        ]
+      },
+      "modules": [
+        {
+          "name": "entry",
+          "srcPath": "./entry",
+          "targets": [
+            {
+              "name": "default",
+              "applyToProducts": [
+                "default"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "tuanjieLib",
+          "srcPath": "./tuanjieLib",
+          "targets": [
+            {
+              "name": "default",
+              "applyToProducts": [
+                "default"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "CONFIG_PROPERTIES": {
+      "enableSignTask": true,
+      "skipNativeIncremental": false,
+      "hvigor.keepDependency": true
+    },
+    "OVERALL_PROJECT_PATHS": [
+      "/Users/guosj-mac-mini/Documents/github_repos/dash-fire-and-ice/Demo_Run"
+    ],
+    "BUILD_CACHE_DIR": ""
+  },
+  "version": 1
+}
