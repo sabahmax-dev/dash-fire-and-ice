@@ -33,7 +33,8 @@ dash-fire-and-ice/
 │   │   └── GameScene.unity        # 主游戏场景
 │   ├── Scripts/                   # C# 脚本
 │   ├── InputSystem/               # 输入配置
-│   │   └── PlayerInputActions.inputactions
+│   │   ├── PlayerInputActions.inputactions
+│   │   └── PlayerInputActions.cs
 │   ├── Prefabs/                   # 预制体 (需手动创建)
 │   └── Animations/                # 动画资源 (需手动创建)
 ├── ProjectSettings/               # 项目配置
